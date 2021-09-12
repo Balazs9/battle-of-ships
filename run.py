@@ -2,18 +2,25 @@ from random import randint
 from pprint import pprint
 
 board = []
-for x in range(0, 5): 
+for x in range(0, 5):
     board.append(["."] * 5)
+    
+
+def print_player_board(board):
+    for row in board:
+        print((" ").join(row))
 
 
-def print_board(board):
+def print_computer_board(board):
     for row in board:
         print((" ").join(row))
 
 
 print("Let's play the battle of ships!")
 
-print_board(board)
+print_player_board(board)
+print("---------")
+print_computer_board(board)
 
 
 def random_row(board):
@@ -52,7 +59,7 @@ def guess_player_number():
                 board[guess_row][guess_col] = "x" 
                 if game == 4:
                     print("Game Over") 
-            print_board(board)
+            print_player_board(board)
 
 
 guess_player_number()
@@ -76,9 +83,12 @@ def guess_computer_number():
             else:
                 print("you missed my ship!")
                 board[guess_row][guess_col] = "z"  
-        
+            print_computer_board(board)
+            
 
 guess_computer_number()
+
+
 
 
 def guess_validate(values):
@@ -92,12 +102,17 @@ def guess_validate(values):
         [int(value) for value in values]
         if value != 5:
             raise ValueError(
-                f"Value must be smaller than 4, you provided {value}")
+            f"Value must be smaller than 4, you provided {value}")
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
         return False
 
     return True
+
+#def main():
+
+
+#main()
 
 
 def new_game():
@@ -116,4 +131,3 @@ def new_game():
 
 
 new_game()
-    
