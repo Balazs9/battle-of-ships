@@ -62,9 +62,6 @@ def guess_player_number():
             print_player_board(board)
 
 
-guess_player_number()
-
-
 def guess_computer_number():
     for game in range(5):
         print("Game", game + 1)
@@ -86,11 +83,6 @@ def guess_computer_number():
             print_computer_board(board)
             
 
-guess_computer_number()
-
-
-
-
 def guess_validate(values):
     """
     Player guess the row and the columns
@@ -101,18 +93,19 @@ def guess_validate(values):
     try:
         [int(value) for value in values]
         if value != 5:
-            raise ValueError(
-            f"Value must be smaller than 4, you provided {value}")
+            raise ValueError(f"Value must be smaller than 4, you provided {value}")
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
         return False
 
     return True
 
-#def main():
 
-
-#main()
+def main():
+    guess_player_number()
+    guess_computer_number()
+    
+main()
 
 
 def new_game():
@@ -120,7 +113,7 @@ def new_game():
     New game starts. Sets board size and number of ships.
     Reset the scoreboard
     """
-
+    game = 5
     size = 5
     num_ships = 4
     scores["computer"] = 0
