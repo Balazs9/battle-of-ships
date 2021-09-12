@@ -1,31 +1,42 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battle of ships
 
-Welcome Balazs9,
+Battle of ships a Python terminal based game. Users can try to beat the computer by finding the computers ships before the computer founds the users.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
++[view the live project here]()
 
-## Reminders
+## How to play
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+The game is the adaption of the classic battleship game which can be played on computer instead of on a paper with pen.
+The player enter their name and than the game starts with two random boards will be generated.
+The player's ship will be displayed with an "x" and the computer's ship with a "z".
+The game will run for 5 turn, and the players can take a guess where the ships are.
 
-## Creating the Heroku app
+## Features
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+### Existing features
 
-1. `heroku/python`
-2. `heroku/nodejs`
+- Random Board generation
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+- Ships are randomly placed, player cannot see them
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+- Play against the computer
 
-Connect your GitHub repository and deploy as normal.
+- score line
 
-## Constraints
+- accept user input
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+- input validation and error checking
 
------
-Happy coding!
+- warning when the same number enterted twice
+
+## Testing
+
+- tested the project by running in PEP8 validator
+
+- tried with wrong or invalid data
+
+## Bugs
+
+- the begining i set up the range for 5 but also the guess_row and guess_col > 5 which made an error, the game didn't run how it supposed to be, than changed the number for 4 in guess_row and guess_col > 4 beacuese it has to take 5 number from 0-4
+
+
