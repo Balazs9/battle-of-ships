@@ -1,12 +1,6 @@
 from random import randint
 from pprint import pprint
 
-scores = {"computer": 0, "player": 0}
-
-"""
-Base of the game
-"""
-
 board = []
 for x in range(0, 5): 
     board.append(["."] * 5)
@@ -26,14 +20,13 @@ def random_col(board):
     return randint(0, len(board[0]) - 1)
 
 ship_row_num = random_row(board)
-
 ship_col_num = random_col(board)
 
 
 def guess_player_number():
 
     for game in range(5):
-        print("Game"), game
+        print("Game", game + 1)
         print("number must be between 0 and 4!")
         guess_row = int(input("guess row: "))
         guess_col = int(input("guess column: "))
@@ -45,19 +38,26 @@ def guess_player_number():
             print("Congratulations you found my ship!")
             break
         else:
-            if (guess_row < 0 or guess_row > 5) or (guess_col < 0 or guess_col > 5):
+            if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
                 print("Wrong! number must be equal or smaller than 5!")
             elif (board[guess_row][guess_col] == "x"):
                 print("you hit that already")
             else:
                 print("you missed my ship!")
-                board[guess_row][guess_col] = "x"  
+                board[guess_row][guess_col] = "x" 
+                if game == 4:
+                    print("Game Over") 
+            print_board(board)
+        
+        game +=1
+        
+        
 
 guess_player_number()
 
 def guess_computer_number():
     for game in range(5):
-        print("Game"), game
+        print("Game", game + 1)
         print("number must be between 0 and 4!")
         guess_row = int(input("guess row: "))
         guess_col = int(input("guess column: "))
