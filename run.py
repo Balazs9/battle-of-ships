@@ -3,6 +3,7 @@ from pprint import pprint
 
 board = []
 
+
 player = {
     "name": "Player1",
     "wins": 0,
@@ -15,7 +16,7 @@ computer = {
 }
 for x in range(0, 5):
     board.append(["."] * 5)
-    
+   
 
 def print_player_board(board):
     for row in board:
@@ -47,14 +48,20 @@ ship_col_num = random_col(board)
 
 
 def take_turn(total_turn):
+    """
+    Taking turns between plyaer and computer
+    """
     if total_turn % 2 == 0:
         total_turn += 1
         return player
-    return computer
+    else:
+        return computer
 
 
 def guess_player_number():
-
+    """
+    Player guess the numbers
+    """
     for game in range(5):
         print("Game", game + 1)
         print("number must be between 0 and 4!")
@@ -82,6 +89,9 @@ def guess_player_number():
 
 
 def guess_computer_number():
+    """
+    Computer guess numbers to find the ship
+    """
     for game in range(5):
         print("Game", game + 1)
         print("number must be between 0 and 4!")
@@ -123,7 +133,7 @@ def guess_validate(values):
 def main():
     guess_player_number()
     guess_computer_number()
-    guess_validate()
+    guess_validate(values)
 
 
 main()
@@ -134,12 +144,8 @@ def new_game():
     New game starts. Sets board size and number of ships.
     Reset the scoreboard
     """
-    
-    game = 5
     size = 5
     num_ships = 4
-    scores["computer"] = 0
-    scores["player"] = 0
     print(f"Board size: {size}. Number of ships: {num_ships}")
     print("Top left corner is row: 0, col: 0")
     player_name = input("Please enter your name: \n")
