@@ -48,10 +48,6 @@ def guess_player_number():
                 if game == 4:
                     print("Game Over") 
             print_board(board)
-        
-        game +=1
-        
-        
 
 guess_player_number()
 
@@ -79,6 +75,8 @@ guess_computer_number()
 def guess_validate(values):
     """
     Player guess the row and the columns
+    validator checks if it is an integer,
+    if not ValueError
     """
 
     try:
@@ -88,7 +86,7 @@ def guess_validate(values):
                 f"Value must be smaller than 5"
             )
     except ValueError as e:
-        print(f"Invalid data {e}, please try again.\n")
+        print(f"Invalid data: {e}, please try again.\n")
         return False
 
     return True
