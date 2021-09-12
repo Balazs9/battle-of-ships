@@ -2,6 +2,17 @@ from random import randint
 from pprint import pprint
 
 board = []
+
+player = {
+    "name": "Player1",
+    "wins": 0,
+    "lose": 0
+}
+computer = {
+    "name": "Computer",
+    "wins": 0,
+    "lose": 0
+}
 for x in range(0, 5):
     board.append(["."] * 5)
     
@@ -35,6 +46,13 @@ ship_row_num = random_row(board)
 ship_col_num = random_col(board)
 
 
+def take_turn(total_turn):
+    if total_turn % 2 == 0:
+        total_turn += 1
+        return player
+    return computer
+
+
 def guess_player_number():
 
     for game in range(5):
@@ -43,8 +61,8 @@ def guess_player_number():
         guess_row = int(input("guess row: "))
         guess_col = int(input("guess column: "))
 
-        print(ship_row_num)
-        print(ship_col_num)
+        #print(ship_row_num)
+        #print(ship_col_num)
 
         if guess_row == ship_row_num and guess_col == ship_col_num:
             print("Congratulations you found my ship!")
@@ -59,6 +77,7 @@ def guess_player_number():
                 board[guess_row][guess_col] = "x" 
                 if game == 4:
                     print("Game Over") 
+                    
             print_player_board(board)
 
 
@@ -104,7 +123,9 @@ def guess_validate(values):
 def main():
     guess_player_number()
     guess_computer_number()
-    
+    guess_validate()
+
+
 main()
 
 
@@ -113,6 +134,7 @@ def new_game():
     New game starts. Sets board size and number of ships.
     Reset the scoreboard
     """
+    
     game = 5
     size = 5
     num_ships = 4
