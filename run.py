@@ -68,22 +68,23 @@ def guess_player_number():
         guess_row = int(input("guess row: "))
         guess_col = int(input("guess column: "))
 
-        #print(ship_row_num)
-        #print(ship_col_num)
+        # print(ship_row_num)
+        # print(ship_col_num)
 
         if guess_row == ship_row_num and guess_col == ship_col_num:
             print("Congratulations you found my ship!")
             break
         else:
-            if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+            if (guess_row < 0 or guess_row > 4) or \
+             (guess_col < 0 or guess_col > 4):
                 print("Wrong! number must be equal or smaller than 4!")
             elif (board[guess_row][guess_col] == "x"):
                 print("you hit that already")
             else:
                 print("you missed my ship!")
-                board[guess_row][guess_col] = "x" 
+                board[guess_row][guess_col] = "x"
                 if game == 4:
-                    print("Game Over") 
+                    print("Game Over")
                     
             print_player_board(board)
 
