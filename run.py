@@ -1,3 +1,4 @@
+import random
 from random import randint
 from pprint import pprint
 
@@ -5,7 +6,7 @@ board = []
 
 
 player = {
-    "name": "Player1",
+    "name": "player_name",
     "wins": 0,
     "lose": 0
 }
@@ -16,8 +17,6 @@ computer = {
 }
 for x in range(0, 5):
     board.append(["."] * 5)
-   
-
 def print_player_board(board):
     for row in board:
         print((" ").join(row))
@@ -27,8 +26,6 @@ def print_computer_board(board):
     for row in board:
         print((" ").join(row))
 
-
-print("Let's play the battle of ships!")
 
 print_player_board(board)
 print("---------")
@@ -49,16 +46,16 @@ ship_col_num = random_col(board)
 
 def take_turn(total_turn):
     """
-    Taking turns between plyaer and computer
+    Taking turns between player and computer
     """
     if total_turn % 2 == 0:
         total_turn += 1
-        return player
+        return player_name
     else:
         return computer
 
 
-def guess_player_number():
+def guess_player_number(player_name):
     """
     Player guess the numbers
     """
@@ -82,11 +79,12 @@ def guess_player_number():
                 print("you hit that already")
             else:
                 print("you missed my ship!")
-                board[guess_row][guess_col] = "x"
-        # if game == 4:
-            # print("Game Over")
-                 
+                board[guess_row][guess_col] = "x"              
             print_player_board(board)
+            return guess_computer_number
+                # if game == 4:
+                    # print("Game Over") 
+
 
 
 def guess_computer_number():
@@ -96,8 +94,8 @@ def guess_computer_number():
     for game in range(5):
         print("Game", game + 1)
         print("number must be between 0 and 4!")
-        guess_row = ship_row_num
-        guess_col = ship_col_num
+        guess_row = random.randint(0, 4)
+        guess_col = random.randint(0, 4)
 
         if guess_row == ship_row_num and guess_col == ship_col_num:
             print("Congratulations you found my ship!")
@@ -112,7 +110,8 @@ def guess_computer_number():
                 print("you missed my ship!")
                 board[guess_row][guess_col] = "z"  
             print_computer_board(board)
-            
+            return guess_player_number
+
 
 def guess_validate(values):
     """
@@ -141,7 +140,7 @@ def main():
     num_ships = 2
     print(f"Board size: {size}.\nNumber of ships: {num_ships}")
     player_name = input("Please enter your name: ")
-    guess_player_number()
+    guess_player_number(player_name)
     guess_computer_number()
 
 
