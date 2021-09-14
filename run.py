@@ -3,8 +3,8 @@ from random import randint
 import sys
 from termcolor import colored, cprint
 
-board = []
 
+board = []
 
 player = {
     "name": "player_name",
@@ -83,6 +83,9 @@ def guess_player_number(player_name):
                 print("you missed my ship!")
                 board[guess_row][guess_col] = "x"
             print_player_board(board)
+            if game == 5:
+                print("Game over")
+            game += 1
             return guess_computer_number
 
 
@@ -109,6 +112,9 @@ def guess_computer_number():
                 print("you missed my ship!")
                 board[guess_row][guess_col] = "z"
             print_computer_board(board)
+            if game == 5:
+                print("Game over")
+            game += 1
             return guess_player_number
 
 
@@ -133,7 +139,7 @@ def guess_validate(values):
 
 def main():
     print("***********************************")
-    print("**Let's play the battle of ships!**")
+    print(colored("**Let's play the battle of ships!**", "yellow"))
     print("***********************************")
     size = 5
     num_ships = 2
