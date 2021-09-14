@@ -1,6 +1,7 @@
 import random
 from random import randint
-from pprint import pprint
+import sys
+from termcolor import colored, cprint
 
 board = []
 
@@ -17,6 +18,8 @@ computer = {
 }
 for x in range(0, 5):
     board.append(["."] * 5)
+
+
 def print_player_board(board):
     for row in board:
         print((" ").join(row))
@@ -44,15 +47,14 @@ ship_row_num = random_row(board)
 ship_col_num = random_col(board)
 
 
-def take_turn(total_turn):
+def take_turn(game):
     """
     Taking turns between player and computer
     """
-    if total_turn % 2 == 0:
-        total_turn += 1
-        return player_name
+    if game == 4:
+        print("Game Over")
     else:
-        return computer
+        game += 1
 
 
 def guess_player_number(player_name):
@@ -79,12 +81,9 @@ def guess_player_number(player_name):
                 print("you hit that already")
             else:
                 print("you missed my ship!")
-                board[guess_row][guess_col] = "x"              
+                board[guess_row][guess_col] = "x"
             print_player_board(board)
             return guess_computer_number
-                # if game == 4:
-                    # print("Game Over") 
-
 
 
 def guess_computer_number():
@@ -108,7 +107,7 @@ def guess_computer_number():
                 print("you hit that already")
             else:
                 print("you missed my ship!")
-                board[guess_row][guess_col] = "z"  
+                board[guess_row][guess_col] = "z"
             print_computer_board(board)
             return guess_player_number
 
@@ -138,10 +137,12 @@ def main():
     print("***********************************")
     size = 5
     num_ships = 2
+    game = 4
     print(f"Board size: {size}.\nNumber of ships: {num_ships}")
     player_name = input("Please enter your name: ")
     guess_player_number(player_name)
     guess_computer_number()
+    take_turn(game)
 
 
 main()
