@@ -64,7 +64,7 @@ def guess_player_number():
     """
     for game in range(5):
         print("Game", game + 1)
-        print("number must be between 0 and 4!")
+        print("Number must be between 0 and 4! \n")
         guess_row = int(input("guess row: "))
         guess_col = int(input("guess column: "))
 
@@ -83,9 +83,9 @@ def guess_player_number():
             else:
                 print("you missed my ship!")
                 board[guess_row][guess_col] = "x"
-                if game == 4:
-                    print("Game Over")
-                    
+        # if game == 4:
+            # print("Game Over")
+                 
             print_player_board(board)
 
 
@@ -96,14 +96,15 @@ def guess_computer_number():
     for game in range(5):
         print("Game", game + 1)
         print("number must be between 0 and 4!")
-        guess_row = int(input("guess row: "))
-        guess_col = int(input("guess column: "))
+        guess_row = ship_row_num
+        guess_col = ship_col_num
 
         if guess_row == ship_row_num and guess_col == ship_col_num:
             print("Congratulations you found my ship!")
             break
         else:
-            if(guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+            if(guess_row < 0 or guess_row > 4) or \
+             (guess_col < 0 or guess_col > 4):
                 print("Wrong! number must be equal or smaller than 4!")
             elif (board[guess_row][guess_col] == "z"):
                 print("you hit that already")
@@ -121,9 +122,10 @@ def guess_validate(values):
     """
 
     try:
-        [int(value) for value in values]
-        if value != 5:
-            raise ValueError(f"Value must be smaller than 4, you provided {value}")
+        [int("value") for guess_row, guess_col in values]
+        if "value" != 5:
+            raise ValueError(f"Value must be smaller than 4, n\
+                 you provided {value}")
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
         return False
@@ -132,24 +134,15 @@ def guess_validate(values):
 
 
 def main():
+    print("***********************************")
+    print("**Let's play the battle of ships!**")
+    print("***********************************")
+    size = 5
+    num_ships = 2
+    print(f"Board size: {size}.\nNumber of ships: {num_ships}")
+    player_name = input("Please enter your name: ")
     guess_player_number()
     guess_computer_number()
-    guess_validate(values)
 
 
 main()
-
-
-def new_game():
-    """
-    New game starts. Sets board size and number of ships.
-    Reset the scoreboard
-    """
-    size = 5
-    num_ships = 4
-    print(f"Board size: {size}. Number of ships: {num_ships}")
-    print("Top left corner is row: 0, col: 0")
-    player_name = input("Please enter your name: \n")
-
-
-new_game()
