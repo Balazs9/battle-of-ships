@@ -23,13 +23,15 @@ for x in range(0, 5):
 
 
 def print_player_board():
-    for row in player_board:
-        print((" ").join(row))
+    print(" ", " ".join("12345"))
+    for letter, row in zip("ABCDE", player_board):
+        print(letter, (" ").join(row))
 
 
 def print_computer_board():
-    for row in computer_board:
-        print((" ").join(row))
+    print(" ", " ".join("12345"))
+    for letter, row in zip("ABCDE", computer_board):
+        print(letter, (" ").join(row))
 
 
 print_player_board()
@@ -55,7 +57,7 @@ def take_turn(game):
     """
     Taking turns between player and computer
     """
-    if game == 4:
+    if game == 5:
         print("Game Over")
     else:
         game += 1
@@ -65,20 +67,17 @@ def guess_player_number(player_name):
     """
     Player guess the numbers
     """
-    for game in range(5):
+    for game in range(6):
         print("Game", game + 1)
         print("Number must be between 1 and 5! \n")
-        guess_row = input("guess row: ")
-        guess_col = input("guess column: ")
+        guess_row = int(input("guess row: "))
+        guess_col = int(input("guess column: "))
         while guess_validate([guess_row, guess_col]) is False:
-            guess_row = input("guess row: ")
-            guess_col = input("guess column: ")
+            guess_row = int(input("guess row: "))
+            guess_col = int(input("guess column: "))
 
-        guess_row -= 1
-        guess_col -= 1
-
-        # print(ship_row_num)
-        # print(ship_col_num)
+        guess_row += -1
+        guess_col += -1
 
         if guess_row == ship_comp_row_num and guess_col == ship_comp_col_num:
             computer_board[guess_row][guess_col] = "o"
@@ -86,9 +85,9 @@ def guess_player_number(player_name):
             print_computer_board()
             break
         else:
-            if (guess_row < 0 or guess_row > 4) or \
-             (guess_col < 0 or guess_col > 4):
-                print("Wrong! number must be equal or smaller than 4!")
+            if (guess_row < 0 or guess_row > 6) or \
+             (guess_col < 0 or guess_col > 6):
+                print("Wrong! number must be equal or smaller than 5!")
             elif (computer_board[guess_row][guess_col] == "x"):
                 print("you hit that already")
             else:
@@ -108,17 +107,17 @@ def guess_computer_number():
     """
     Computer guess numbers to find the ship
     """
-    guess_row = random.randint(0, 4)
-    guess_col = random.randint(0, 4)
+    guess_row = random.randint(1, 6)
+    guess_col = random.randint(1, 6)
 
     if guess_row == ship_player_row_num and guess_col == ship_player_col_num:
         player_board[guess_row][guess_col] = "o"
         print_player_board()
         return True
     else:
-        if(guess_row < 0 or guess_row > 4) or \
-            (guess_col < 0 or guess_col > 4):
-            print("Wrong! number must be equal or smaller than 4!")
+        if(guess_row < 0 or guess_row > 6) or \
+             (guess_col < 0 or guess_col > 6):
+            print("Wrong! number must be equal or smaller than 5!")
         elif (player_board[guess_row][guess_col] == "z"):
             print("you hit that already")
         else:
@@ -137,22 +136,30 @@ def guess_validate(values):
 
     try:
         for value in values:
-            value = int(value)
+            value == int(value)
 
-            if value < 1 or value > 6:
+            if (value < 1 or value > 6):
                 raise ValueError(f"Values must be between 1 and 5, \
-                    you provided {value}")
+                 you provided {value}")
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again.\n")
+        print(f"Sorry that {e} is not a number, try again please")
         return False
 
     return True
 
 
 def main():
+    """
+    This is the function what runs the game
+    """
+    wins = 0
+    losses = 0
     print("***********************************")
     print(colored("**Let's play the battle of ships!**", "yellow"))
     print("***********************************")
+    print(colored("Game rules: ", "yellow"))
+    print(colored("Two player game, human against the computer. Each player guess their number.", "yellow"))
+    print(colored("Then the bets will be visible on the boards. Each player has 5 chance to bet", "yellow"))
     size = 5
     num_ships = 2
     game = 4

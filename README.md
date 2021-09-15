@@ -29,6 +29,12 @@ The game will run for 5 turn, and the players can take a guess where the ships a
 
 - warning when the same number enterted twice
 
+### Future features
+
+- new gameplay
+
+- scoreboard
+
 ## Testing
 
 - tested the project by running in PEP8 validator
