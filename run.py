@@ -70,11 +70,11 @@ def guess_player_number(player_name):
     for game in range(5):
         print("Game", game + 1)
         print("Number must be between 1 and 5! \n")
-        guess_row = input("guess row: ")
-        guess_col = input("guess column: ")
+        guess_row = input("guess row: \n")
+        guess_col = input("guess column: \n")
         while guess_validate([guess_row, guess_col]) is False:
-            guess_row = input("guess row: ")
-            guess_col = input("guess column: ")
+            guess_row = input("guess row: \n")
+            guess_col = input("guess column: \n")
 
         # guess_row += -1
         # guess_col += -1
