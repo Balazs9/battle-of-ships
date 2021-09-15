@@ -7,6 +7,7 @@ from termcolor import colored, cprint
 player_board = []
 computer_board = []
 
+
 player = {
     "name": "player_name",
     "wins": 0,
@@ -153,8 +154,10 @@ def main():
     print("***********************************")
     print("***********************************")
     print(colored("Game rules: ", "yellow"))
-    print(colored("Two player game, human against the computer. Each player guess their number.", "yellow"))
-    print(colored("Then the bets will be visible on the boards. Each player has 5 chance to bet", "yellow"))
+    print(colored("Two players game, human against the computer.", "yellow"))
+    print(colored("Each player guess their number.", "yellow"))
+    print(colored("Then the bets will be visible on the boards.", "yellow"))
+    print(colored("Each player has 5 chance to bet", "yellow"))
     print("***********************************")
     size = 5
     num_ships = 2

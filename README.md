@@ -37,12 +37,30 @@ The game will run for 5 turn, and the players can take a guess where the ships a
 
 ## Testing
 
-- tested the project by running in PEP8 validator
+- tested the project by running in PEP8online validator
 
-- tried with wrong or invalid data
+- tried with wrong or invalid data,
 
 ## Bugs
 
-- the begining i set up the range for 5 but also the guess_row and guess_col > 5 which made an error, the game didn't run how it supposed to be, than changed the number for 4 in guess_row and guess_col > 4 beacuese it has to take 5 number from 0-4
+Solved bugs
+
+- In the begining index error, because the range what i set for the validator was not correct
+
+## Deployment
+
+This project was deployed on Heroku, using Code Institute mock terminal.
+
+- Create a new Heroku app
+
+- Set the buildbacks to Python and NodeJS
+
+- Link the heroku app to the repository
+
+- Click on Deploy
+
+## Credits
+
+- Code Institue for the deployment terminal
 
 
