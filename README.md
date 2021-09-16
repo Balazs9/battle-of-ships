@@ -4,9 +4,13 @@ Battle of ships a Python terminal based game. Users can try to beat the computer
 
 +[view the live project here]()
 
+## UX
+
+It is a game for everyone who likes battleship.
+
 ## How to play
 
-The game is the adaption of the classic battleship game which can be played on computer instead of on a paper with pen.
+The game is the adaptation of the classic battleship game which can be played on computer instead of on a paper with pen.
 The player enter their name and than the game starts with two random boards will be generated.
 The player's ship will be displayed with an "x" and the computer's ship with a "z".
 The game will run for 5 turn, and the players can take a guess where the ships are.
@@ -34,6 +38,18 @@ The game will run for 5 turn, and the players can take a guess where the ships a
 - new gameplay
 
 - scoreboard
+
+## Technologies
+
+- Heroku was used to deploy the program
+
+- Git was used for version control
+
+- Github was used to store the project
+
+- Pep8 was used to validate
+
+- Termcolor was used to install the colors 
 
 ## Testing
 

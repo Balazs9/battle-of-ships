@@ -71,8 +71,8 @@ def guess_player_number(player_name):
     for game in range(5):
         print("Game", game + 1)
         print("Number must be between 1 and 5! \n")
-        guess_row = input("guess row: \n")
-        guess_col = input("guess column: \n")
+        guess_row = input("guess row: \n")      # Let's the player guess the row number
+        guess_col = input("guess column: \n")   # Let's the player guess the column number
         while guess_validate([guess_row, guess_col]) is False:
             guess_row = input("guess row: \n")
             guess_col = input("guess column: \n")
@@ -82,16 +82,17 @@ def guess_player_number(player_name):
 
         if guess_row == ship_comp_row_num and guess_col == ship_comp_col_num:
             computer_board[guess_row][guess_col] = "o"
-            print("Congratulations you found my ship!")
+            print("Congratulations you found my ship! That was nice!")
             print_computer_board()
             break
         else:
-            if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+            if (guess_row < 0 or guess_row > 4) or \
+             (guess_col < 0 or guess_col > 4):
                 print("Wrong! number must be equal or smaller than 5!")
             elif (computer_board[guess_row][guess_col] == "x"):
                 print("you hit that already")
             else:
-                print("you missed my ship!")
+                print("Sorry, you missed my ship! Don't give up!")
                 computer_board[guess_row][guess_col] = "x"
             print_computer_board()
             computer_result = guess_computer_number()
@@ -115,12 +116,13 @@ def guess_computer_number():
         print_player_board()
         return True
     else:
-        if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+        if (guess_row < 0 or guess_row > 4) or \
+         (guess_col < 0 or guess_col > 4):
             print("Wrong! number must be equal or smaller than 5!")
         elif (player_board[guess_row][guess_col] == "z"):
             print("you hit that already")
         else:
-            print("you missed my ship!")
+            print("Sorry, you missed my ship! Don't give up!")
             player_board[guess_row][guess_col] = "z"
         print_player_board()
         return False
@@ -158,6 +160,8 @@ def main():
     print(colored("Each player guess their number.", "yellow"))
     print(colored("Then the bets will be visible on the boards.", "yellow"))
     print(colored("Each player has 5 chance to bet", "yellow"))
+    print("***********************************")
+    print(colored("Good luck and have fun!", "red"))
     print("***********************************")
     size = 5
     num_ships = 2
