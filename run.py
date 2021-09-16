@@ -64,7 +64,7 @@ def take_turn(game):
         game += 1
 
 
-def guess_player_number(name):
+def guess_player_number(player_name):
     """
     Player guess the numbers
     """
@@ -172,8 +172,8 @@ def main():
     game = 4
     print(f"Board size: {size}.\nNumber of ships: {num_ships}")
     player_name = input("Please enter your name: ")
-    name = print_name(player_name)
-    guess_player_number(name)
+    print_name(player_name)
+    guess_player_number(player_name)
     guess_computer_number()
     take_turn(game)
 
