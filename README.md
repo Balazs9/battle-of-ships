@@ -2,7 +2,9 @@
 
 Battle of ships a Python terminal based game. Users can try to beat the computer by finding the computers ships before the computer founds the users.
 
-+[view the live project here]()
+![landing](photo/responsive-screens.png)
+
++[view the live project here](https://battle-of-ships-game.herokuapp.com/)
 
 ## UX
 
@@ -69,7 +71,7 @@ This project was deployed on Heroku, using Code Institute mock terminal.
 
 - Create a new Heroku app
 
-- Set the buildbacks to Python and NodeJS
+- Set the buildpacks to Python and NodeJS
 
 - Link the heroku app to the repository
 
