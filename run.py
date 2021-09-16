@@ -168,6 +168,7 @@ def main():
     game = 4
     print(f"Board size: {size}.\nNumber of ships: {num_ships}")
     player_name = input("Please enter your name: ")
+    print(colored(player_name, "blue"))
     guess_player_number(player_name)
     guess_computer_number()
     take_turn(game)

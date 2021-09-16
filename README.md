@@ -21,6 +21,14 @@ The game will run for 5 turn, and the players can take a guess where the ships a
 
 ### Existing features
 
+- starting page
+
+![landing](photo/starting-page.png)
+
+- game area
+
+![landing](photo/game-boards.png)
+
 - Random Board generation
 
 - Ships are randomly placed, player cannot see them
