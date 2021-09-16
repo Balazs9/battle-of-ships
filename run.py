@@ -64,7 +64,7 @@ def take_turn(game):
         game += 1
 
 
-def guess_player_number(player_name):
+def guess_player_number(name):
     """
     Player guess the numbers
     """
@@ -147,6 +147,10 @@ def guess_validate(values):
         return False
 
 
+def print_name(name):
+    print(f"Hello {name}")
+
+
 def main():
     """
     This is the function what runs the game
@@ -168,8 +172,8 @@ def main():
     game = 4
     print(f"Board size: {size}.\nNumber of ships: {num_ships}")
     player_name = input("Please enter your name: ")
-    print(colored(player_name, "blue"))
-    guess_player_number(player_name)
+    name = print_name(player_name)
+    guess_player_number(name)
     guess_computer_number()
     take_turn(game)
 
