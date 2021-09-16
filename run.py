@@ -77,8 +77,8 @@ def guess_player_number(player_name):
             guess_row = input("guess row: \n")
             guess_col = input("guess column: \n")
 
-        # guess_row += -1
-        # guess_col += -1
+        guess_row = int(guess_row) - 1
+        guess_col = int(guess_col) - 1
 
         if guess_row == ship_comp_row_num and guess_col == ship_comp_col_num:
             computer_board[guess_row][guess_col] = "o"
@@ -86,8 +86,8 @@ def guess_player_number(player_name):
             print_computer_board()
             break
         else:
-            if guess_row not in range(5) and guess_col not in range(5):
-                print("Wrong! number must be equal or smaller than 4!")
+            if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+                print("Wrong! number must be equal or smaller than 5!")
             elif (computer_board[guess_row][guess_col] == "x"):
                 print("you hit that already")
             else:
@@ -107,16 +107,16 @@ def guess_computer_number():
     """
     Computer guess numbers to find the ship
     """
-    guess_row = random.randint(1, 5)
-    guess_col = random.randint(1, 5)
+    guess_row = random.randint(0, 4)
+    guess_col = random.randint(0, 4)
 
     if guess_row == ship_player_row_num and guess_col == ship_player_col_num:
         player_board[guess_row][guess_col] = "o"
         print_player_board()
         return True
     else:
-        if guess_row not in range(5) or guess_col not in range(5):
-            print("Wrong! number must be equal or smaller than 4!")
+        if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+            print("Wrong! number must be equal or smaller than 5!")
         elif (player_board[guess_row][guess_col] == "z"):
             print("you hit that already")
         else:
