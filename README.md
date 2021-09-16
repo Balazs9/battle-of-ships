@@ -35,8 +35,6 @@ The game will run for 5 turn, and the players can take a guess where the ships a
 
 - Play against the computer
 
-- score line
-
 - accept user input
 
 - input validation and error checking
